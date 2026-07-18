@@ -3,8 +3,8 @@ import GmailIcon from "@/components/icons/GmailIcon.astro"
 import GitHubIcon from "@/components/icons/GitHubIcon.astro"
 ---
 
-<div class="flex flex-col items-center gap-6 p-6 w-full md:w-70">
-    <h1 class="font-extrabold text-2xl tracking-tighter text-center">
+<div class="flex flex-col items-center gap-6 w-full md:w-70">
+    <h1 class="font-black text-2xl tracking-tighter text-center">
         MANUEL MURILLO
     </h1>
     <div class="flex flex-col items-center gap-1">
@@ -12,14 +12,69 @@ import GitHubIcon from "@/components/icons/GitHubIcon.astro"
             Java Backend Developer
         </h2>
         <p class="font-semibold text-center">
-            México
+            Mexico
         </p>
     </div>
     <div class="flex items-center gap-8">
-        <GmailIcon height="30" width="30"/>
-        <GitHubIcon height="28" width="28"/>
+        <button
+            data-copy-email="manuel1307ms@gmail.com"
+            aria-label="Copy email"
+            title="Copy email"
+            class="cursor-pointer group"
+        >
+            <span class="block transition-transform duration-200 group-hover:scale-110">
+                <GmailIcon height="30" width="30"/>
+            </span>
+        </button>
+        <a
+            href="https://github.com/Manuel1307MS"
+            target="_blank"
+            aria-label="GitHub"
+            title="GitHub"
+            class="group"
+        >
+            <span class="block transition-transform duration-200 group-hover:scale-110">
+                <GitHubIcon height="28" width="28"/>
+            </span>
+      </a>
     </div>
     <p class="text-sm text-black/80 text-justify">
         Java backend developer with business knowledge, focused on designing solutions that optimize processes and drive results.
     </p>
 </div>
+
+<script>
+    const setupCopyEmail = () => {
+        const button = document.querySelector('[data-copy-email]');
+        if (!button) return;
+
+        const originalContent = button.innerHTML;
+
+        button.addEventListener('click', async () => {
+            const email = button.getAttribute('data-copy-email');
+            if (!email) return;
+
+            try {
+                await navigator.clipboard.writeText(email);
+                
+                button.classList.remove('group');
+                button.innerHTML = '<span class="text-[9px] tracking-wide text-green-600 font-semibold block w-[30px] h-[30px] leading-[30px] text-center">COPIED</span>';
+                
+                setTimeout(() => {
+                    button.classList.add('group');
+                    button.innerHTML = originalContent;
+                }, 1500);
+            } catch (err) {
+                button.classList.remove('group');
+                button.innerHTML = '<span class="text-[9px] tracking-wide text-red-600 font-semibold block w-[30px] h-[30px] leading-[30px] text-center">ERROR</span>';
+                setTimeout(() => {
+                    button.classList.add('group');
+                    button.innerHTML = originalContent;
+                }, 1500);
+            }
+        });
+    };
+
+    setupCopyEmail();
+    document.addEventListener('astro:page-load', setupCopyEmail);
+</script>
