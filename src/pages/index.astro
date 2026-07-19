@@ -4,7 +4,53 @@ import LayoutSplit from '@/layouts/LayoutSplit.astro';
 ---
 
 <Layout>
-	<LayoutSplit>
-		
-	</LayoutSplit>
+    <nav class="h-14 hidden md:flex items-center justify-center gap-2 sticky top-0 z-10">
+        <button data-filter="all" class="w-24 py-1.5 text-sm transition-all duration-50 bg-black text-white font-semibold cursor-pointer">Home</button>
+        <button data-filter="projects" class="w-24 py-1.5 text-sm transition-all duration-50 bg-transparent text-black/80 font-normal cursor-pointer">Projects</button>
+        <button data-filter="education" class="w-24 py-1.5 text-sm transition-all duration-50 bg-transparent text-black/80 font-normal cursor-pointer">Education</button>
+        <button data-filter="skills" class="w-24 py-1.5 text-sm transition-all duration-50 bg-transparent text-black/80 font-normal cursor-pointer">Skills</button>
+    </nav>
+    
+    <LayoutSplit>
+        <nav class="h-14 flex md:hidden items-center justify-center gap-2 sticky top-0 z-10 px-4">
+            <button data-filter="all" class="w-24 py-1.5 text-sm transition-all duration-50 bg-black text-white font-semibold cursor-pointer">All</button>
+            <button data-filter="projects" class="w-24 py-1.5 text-sm transition-all duration-50 bg-transparent text-black/80 font-normal cursor-pointer">Projects</button>
+            <button data-filter="education" class="w-24 py-1.5 text-sm transition-all duration-50 bg-transparent text-black/80 font-normal cursor-pointer">Education</button>
+            <button data-filter="skills" class="w-24 py-1.5 text-sm transition-all duration-50 bg-transparent text-black/80 font-normal cursor-pointer">Skills</button>
+        </nav>
+
+        <h1 data-category="skills" class="filter-item">Astro</h1>
+        <h1 data-category="skills" class="filter-item">Ingles</h1>
+        <h1 data-category="skills" class="filter-item">React</h1>
+        <h1 data-category="education" class="filter-item">Escuela1</h1>
+        <h1 data-category="projects" class="filter-item">Proyecto1</h1>
+        <h1 data-category="projects" class="filter-item">Proyecto2</h1>
+        <h1 data-category="education" class="filter-item">Escuela2</h1>
+        <h1 data-category="skills" class="filter-item">Java</h1>
+    </LayoutSplit>
 </Layout>
+
+<script>
+    const items = document.querySelectorAll('.filter-item') as NodeListOf<HTMLElement>;
+    const buttons = document.querySelectorAll('[data-filter]') as NodeListOf<HTMLElement>;
+
+    const runFilter = (value: string | null) => {
+        buttons.forEach(btn => {
+            const active = btn.getAttribute('data-filter') === value;
+            
+            btn.classList.toggle('bg-black', active);
+            btn.classList.toggle('text-white', active);
+            btn.classList.toggle('font-semibold', active);
+
+            btn.classList.toggle('bg-transparent', !active);
+            btn.classList.toggle('text-black/80', !active);
+            btn.classList.toggle('font-normal', !active);
+        });
+
+        const update = () => items.forEach(item => item.classList.toggle('hidden', value !== 'all' && value !== item.getAttribute('data-category')));
+        if (document.startViewTransition) document.startViewTransition(update);
+        else update();
+    };
+
+    buttons.forEach(btn => btn.addEventListener('click', () => runFilter(btn.getAttribute('data-filter'))));
+</script>
