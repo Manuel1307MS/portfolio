@@ -8,8 +8,8 @@ interface Props {
 const { title, description, category } = Astro.props;
 ---
 
-<div data-category={category} class="filter-item border">
-    <h2>{title}</h2>
+<div data-category={category} class="filter-item">
+    <h2 class="font-semibold p-1">{title}</h2>
     <slot />
-    <p>{description}</p>
+    <p class="text-sm text-black/80 p-1">{description}</p>
 </div>
