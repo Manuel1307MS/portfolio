@@ -1,0 +1,15 @@
+---
+interface Props {
+    title: string;
+    description: string;
+    category: string;
+}
+
+const { title, description, category } = Astro.props;
+---
+
+<div data-category={category} class="filter-item border">
+    <h2>{title}</h2>
+    <slot />
+    <p>{description}</p>
+</div>

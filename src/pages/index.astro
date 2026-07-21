@@ -1,32 +1,54 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import LayoutSplit from '@/layouts/LayoutSplit.astro';
+import Post from '@/components/Post.astro';
 ---
 
 <Layout>
-    <nav class="h-14 hidden md:flex items-center justify-center gap-2 sticky top-0 z-10">
+    <nav class="bg-white h-14 hidden md:flex items-center justify-center gap-2 sticky top-0 z-10">
         <button data-filter="all" class="w-24 py-1.5 text-sm transition-all duration-50 bg-black text-white font-semibold cursor-pointer">Home</button>
         <button data-filter="projects" class="w-24 py-1.5 text-sm transition-all duration-50 bg-transparent text-black/80 font-normal cursor-pointer">Projects</button>
         <button data-filter="education" class="w-24 py-1.5 text-sm transition-all duration-50 bg-transparent text-black/80 font-normal cursor-pointer">Education</button>
         <button data-filter="skills" class="w-24 py-1.5 text-sm transition-all duration-50 bg-transparent text-black/80 font-normal cursor-pointer">Skills</button>
     </nav>
-    
-    <LayoutSplit>
-        <nav class="h-14 flex md:hidden items-center justify-center gap-2 sticky top-0 z-10 px-4">
-            <button data-filter="all" class="w-24 py-1.5 text-sm transition-all duration-50 bg-black text-white font-semibold cursor-pointer">All</button>
-            <button data-filter="projects" class="w-24 py-1.5 text-sm transition-all duration-50 bg-transparent text-black/80 font-normal cursor-pointer">Projects</button>
-            <button data-filter="education" class="w-24 py-1.5 text-sm transition-all duration-50 bg-transparent text-black/80 font-normal cursor-pointer">Education</button>
-            <button data-filter="skills" class="w-24 py-1.5 text-sm transition-all duration-50 bg-transparent text-black/80 font-normal cursor-pointer">Skills</button>
-        </nav>
 
-        <h1 data-category="skills" class="filter-item">Astro</h1>
-        <h1 data-category="skills" class="filter-item">Ingles</h1>
-        <h1 data-category="skills" class="filter-item">React</h1>
-        <h1 data-category="education" class="filter-item">Escuela1</h1>
-        <h1 data-category="projects" class="filter-item">Proyecto1</h1>
-        <h1 data-category="projects" class="filter-item">Proyecto2</h1>
-        <h1 data-category="education" class="filter-item">Escuela2</h1>
-        <h1 data-category="skills" class="filter-item">Java</h1>
+    <LayoutSplit>
+        <div class="flex flex-col gap-4">
+            <nav class="bg-white h-14 flex md:hidden items-center justify-center gap-2 sticky top-0 z-10">
+                <button data-filter="all" class="w-24 py-1.5 text-sm transition-all duration-50 bg-black text-white font-semibold cursor-pointer">All</button>
+                <button data-filter="projects" class="w-24 py-1.5 text-sm transition-all duration-50 bg-transparent text-black/80 font-normal cursor-pointer">Projects</button>
+                <button data-filter="education" class="w-24 py-1.5 text-sm transition-all duration-50 bg-transparent text-black/80 font-normal cursor-pointer">Education</button>
+                <button data-filter="skills" class="w-24 py-1.5 text-sm transition-all duration-50 bg-transparent text-black/80 font-normal cursor-pointer">Skills</button>
+            </nav>
+
+            <Post title="Bufonio" description="Software" category="projects">
+                <div class="bg-red-500 h-20"></div>
+            </Post>
+
+            <Post title="Frontend" description="Frontend" category="skills">
+                <div class="bg-green-500 h-20"></div>
+            </Post>
+
+            <Post title="Quick Learning" description="English" category="education">
+                <div class="bg-blue-700 h-20"></div>
+            </Post>
+
+            <Post title="Frontend" description="Frontend" category="skills">
+                <div class="bg-orange-500 h-20"></div>
+            </Post>
+
+            <Post title="University" description="University" category="education">
+                <div class="bg-purple-950 h-20"></div>
+            </Post>
+
+            <Post title="Backend" description="Backend" category="skills">
+                <div class="bg-red-800 h-20"></div>
+            </Post>
+
+            <Post title="Conalep" description="Java" category="education">
+                <div class="bg-green-800 h-20"></div>
+            </Post>
+        </div>
     </LayoutSplit>
 </Layout>
 
