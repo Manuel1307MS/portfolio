@@ -1,117 +1,201 @@
 ---
-import Layout from '@/layouts/Layout.astro';
-import LayoutSplit from '@/layouts/LayoutSplit.astro';
-import Post from '@/components/Post.astro';
+import Layout from "@/layouts/Layout.astro";
+import LayoutSplit from "@/layouts/LayoutSplit.astro";
+import Post from "@/components/Post.astro";
 
 const data = [
-    {
-        title:"Bufonio",
-        description:"Bufonio is an anonymous feedback platform that uses artificial intelligence to turn employee feedback into constructive messages with a touch of humor, fostering more open communication and reducing tension between teams and leaders.",
-        category:"projects"
-    },
-    {
-        title:"Frontend",
-        description:"As part of my growth as a front-end developer, I integrated TypeScript and Tailwind CSS into my projects, improving code quality and enabling me to build modern, scalable, and well-structured interfaces.",
-        category:"skills"
-    },
-    {
-        title:"Quick Learning",
-        description:"To expand my professional profile, I studied English at Quick Learning, where I achieved a B1 level, which allows me to communicate fluently in a variety of situations.",
-        category:"education"
-    },
-    {
-        title:"Frontend",
-        description:"Looking to strengthen my profile as a developer, I began learning front-end development, gaining knowledge in HTML, CSS, and JavaScript, as well as modern frameworks such as React and Astro.",
-        category:"skills"
-    },
-    {
-        title:"University of Xalapa",
-        description:"With the goal of designing software solutions that meet business needs, I decided to study International Business to gain strategic knowledge of trade, finance, and management.",
-        category:"education"
-    },
-    {   
-        title:"Backend",
-        description:"Driven by curiosity, I studied Java and developed my first applications while learning the fundamentals of software development. I then delved deeper into Spring and SQL, which allowed me to advance my training as a backend developer.",
-        category:"skills"
-    },
-    {
-        title:"High school",
-        description:"My training as a high school graduate with a technical degree in computer science was the starting point for discovering my interest in programming and technology.",
-        category:"education"
-
-    }
-]
+  {
+    title: "Bufonio",
+    description:
+      "Bufonio is an anonymous feedback platform that uses artificial intelligence to turn employee feedback into constructive messages with a touch of humor, fostering more open communication and reducing tension between teams and leaders.",
+    category: "projects",
+  },
+  {
+    title: "Frontend",
+    description:
+      "As part of my growth as a front-end developer, I integrated TypeScript and Tailwind CSS into my projects, improving code quality and enabling me to build modern, scalable, and well-structured interfaces.",
+    category: "skills",
+  },
+  {
+    title: "Quick Learning",
+    description:
+      "To expand my professional profile, I studied English at Quick Learning, where I achieved a B1 level, which allows me to communicate fluently in a variety of situations.",
+    category: "education",
+  },
+  {
+    title: "Frontend",
+    description:
+      "Looking to strengthen my profile as a developer, I began learning front-end development, gaining knowledge in HTML, CSS, and JavaScript, as well as modern frameworks such as React and Astro.",
+    category: "skills",
+  },
+  {
+    title: "University of Xalapa",
+    description:
+      "With the goal of designing software solutions that meet business needs, I decided to study International Business to gain strategic knowledge of trade, finance, and management.",
+    category: "education",
+  },
+  {
+    title: "Backend",
+    description:
+      "Driven by curiosity, I studied Java and developed my first applications while learning the fundamentals of software development. I then delved deeper into Spring and SQL, which allowed me to advance my training as a backend developer.",
+    category: "skills",
+  },
+  {
+    title: "High school",
+    description:
+      "My training as a high school graduate with a technical degree in computer science was the starting point for discovering my interest in programming and technology.",
+    category: "education",
+  },
+];
 ---
 
 <Layout>
-    <nav class="bg-white h-14 hidden md:flex items-center justify-center gap-2 sticky top-0 z-10">
-        <button data-filter="all" class="w-24 py-1.5 text-sm transition-all duration-50 bg-black text-white font-semibold cursor-pointer">Home</button>
-        <button data-filter="projects" class="w-24 py-1.5 text-sm transition-all duration-50 bg-transparent text-black/80 font-normal cursor-pointer">Projects</button>
-        <button data-filter="education" class="w-24 py-1.5 text-sm transition-all duration-50 bg-transparent text-black/80 font-normal cursor-pointer">Education</button>
-        <button data-filter="skills" class="w-24 py-1.5 text-sm transition-all duration-50 bg-transparent text-black/80 font-normal cursor-pointer">Skills</button>
-    </nav>
+  <nav
+    class="bg-white border-b border-black/20 h-14 hidden md:flex items-center justify-center gap-2 sticky top-0 z-10"
+  >
+    <button
+      data-filter="all"
+      class="w-24 py-1.5 text-sm transition-all duration-50 bg-black text-white font-semibold cursor-pointer"
+      >Home</button
+    >
+    <button
+      data-filter="projects"
+      class="w-24 py-1.5 text-sm transition-all duration-50 bg-transparent text-black/80 font-normal cursor-pointer"
+      >Projects</button
+    >
+    <button
+      data-filter="education"
+      class="w-24 py-1.5 text-sm transition-all duration-50 bg-transparent text-black/80 font-normal cursor-pointer"
+      >Education</button
+    >
+    <button
+      data-filter="skills"
+      class="w-24 py-1.5 text-sm transition-all duration-50 bg-transparent text-black/80 font-normal cursor-pointer"
+      >Skills</button
+    >
+  </nav>
 
-    <LayoutSplit>
-        <div class="flex flex-col gap-4">
-            <nav class="bg-white h-14 flex md:hidden items-center justify-center gap-2 sticky top-0 z-10">
-                <button data-filter="all" class="w-24 py-1.5 text-sm transition-all duration-50 bg-black text-white font-semibold cursor-pointer">All</button>
-                <button data-filter="projects" class="w-24 py-1.5 text-sm transition-all duration-50 bg-transparent text-black/80 font-normal cursor-pointer">Projects</button>
-                <button data-filter="education" class="w-24 py-1.5 text-sm transition-all duration-50 bg-transparent text-black/80 font-normal cursor-pointer">Education</button>
-                <button data-filter="skills" class="w-24 py-1.5 text-sm transition-all duration-50 bg-transparent text-black/80 font-normal cursor-pointer">Skills</button>
-            </nav>
+  <LayoutSplit>
+    <div class="flex flex-col gap-4">
+      <nav
+        class="bg-white border-b border-black/20 h-14 flex md:hidden items-center justify-center gap-2 sticky top-0 z-10"
+      >
+        <button
+          data-filter="all"
+          class="w-24 py-1.5 text-sm transition-all duration-50 bg-black text-white font-semibold cursor-pointer"
+          >All</button
+        >
+        <button
+          data-filter="projects"
+          class="w-24 py-1.5 text-sm transition-all duration-50 bg-transparent text-black/80 font-normal cursor-pointer"
+          >Projects</button
+        >
+        <button
+          data-filter="education"
+          class="w-24 py-1.5 text-sm transition-all duration-50 bg-transparent text-black/80 font-normal cursor-pointer"
+          >Education</button
+        >
+        <button
+          data-filter="skills"
+          class="w-24 py-1.5 text-sm transition-all duration-50 bg-transparent text-black/80 font-normal cursor-pointer"
+          >Skills</button
+        >
+      </nav>
 
-            <Post title={data[0].title} description={data[0].description} category={data[0].category}>
-                <div class="bg-red-500 h-50"></div>
-            </Post>
+      <Post
+        title={data[0].title}
+        description={data[0].description}
+        category={data[0].category}
+      >
+        <div class="bg-red-500 h-50"></div>
+      </Post>
 
-            <Post title={data[1].title} description={data[1].description} category={data[1].category}>
-                <div class="bg-green-500 h-50"></div>
-            </Post>
+      <Post
+        title={data[1].title}
+        description={data[1].description}
+        category={data[1].category}
+      >
+        <div class="bg-green-500 h-50"></div>
+      </Post>
 
-            <Post title={data[2].title} description={data[2].description} category={data[2].category}>
-                <div class="bg-blue-700 h-50"></div>
-            </Post>
+      <Post
+        title={data[2].title}
+        description={data[2].description}
+        category={data[2].category}
+      >
+        <div class="bg-blue-700 h-50"></div>
+      </Post>
 
-            <Post title={data[3].title} description={data[3].description} category={data[3].category}>
-                <div class="bg-orange-500 h-50"></div>
-            </Post>
+      <Post
+        title={data[3].title}
+        description={data[3].description}
+        category={data[3].category}
+      >
+        <div class="bg-orange-500 h-50"></div>
+      </Post>
 
-            <Post title={data[4].title} description={data[4].description} category={data[4].category}>
-                <div class="bg-purple-950 h-50"></div>
-            </Post>
+      <Post
+        title={data[4].title}
+        description={data[4].description}
+        category={data[4].category}
+      >
+        <div class="bg-purple-950 h-50"></div>
+      </Post>
 
-            <Post title={data[5].title} description={data[5].description} category={data[5].category}>
-                <div class="bg-red-800 h-50"></div>
-            </Post>
+      <Post
+        title={data[5].title}
+        description={data[5].description}
+        category={data[5].category}
+      >
+        <div class="bg-red-800 h-50"></div>
+      </Post>
 
-            <Post title={data[6].title} description={data[6].description} category={data[6].category}>
-                <div class="bg-green-800 h-50"></div>
-            </Post>
-        </div>
-    </LayoutSplit>
+      <Post
+        title={data[6].title}
+        description={data[6].description}
+        category={data[6].category}
+      >
+        <div class="bg-green-800 h-50"></div>
+      </Post>
+    </div>
+  </LayoutSplit>
 </Layout>
 
 <script>
-    const items = document.querySelectorAll('.filter-item') as NodeListOf<HTMLElement>;
-    const buttons = document.querySelectorAll('[data-filter]') as NodeListOf<HTMLElement>;
+  const items = document.querySelectorAll(
+    ".filter-item",
+  ) as NodeListOf<HTMLElement>;
+  const buttons = document.querySelectorAll(
+    "[data-filter]",
+  ) as NodeListOf<HTMLElement>;
 
-    const runFilter = (value: string | null) => {
-        buttons.forEach(btn => {
-            const active = btn.getAttribute('data-filter') === value;
-            
-            btn.classList.toggle('bg-black', active);
-            btn.classList.toggle('text-white', active);
-            btn.classList.toggle('font-semibold', active);
+  const runFilter = (value: string | null) => {
+    buttons.forEach((btn) => {
+      const active = btn.getAttribute("data-filter") === value;
 
-            btn.classList.toggle('bg-transparent', !active);
-            btn.classList.toggle('text-black/80', !active);
-            btn.classList.toggle('font-normal', !active);
-        });
+      btn.classList.toggle("bg-black", active);
+      btn.classList.toggle("text-white", active);
+      btn.classList.toggle("font-semibold", active);
 
-        const update = () => items.forEach(item => item.classList.toggle('hidden', value !== 'all' && value !== item.getAttribute('data-category')));
-        if (document.startViewTransition) document.startViewTransition(update);
-        else update();
-    };
+      btn.classList.toggle("bg-transparent", !active);
+      btn.classList.toggle("text-black/80", !active);
+      btn.classList.toggle("font-normal", !active);
+    });
 
-    buttons.forEach(btn => btn.addEventListener('click', () => runFilter(btn.getAttribute('data-filter'))));
+    const update = () =>
+      items.forEach((item) =>
+        item.classList.toggle(
+          "hidden",
+          value !== "all" && value !== item.getAttribute("data-category"),
+        ),
+      );
+    if (document.startViewTransition) document.startViewTransition(update);
+    else update();
+  };
+
+  buttons.forEach((btn) =>
+    btn.addEventListener("click", () =>
+      runFilter(btn.getAttribute("data-filter")),
+    ),
+  );
 </script>
