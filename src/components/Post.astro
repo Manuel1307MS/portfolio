@@ -1,15 +1,22 @@
 ---
 interface Props {
-    title: string;
-    description: string;
-    category: string;
+  title: string;
+  description: string;
+  category: string;
 }
 
 const { title, description, category } = Astro.props;
+
+import HeartIcon from "@/components/icons/HeartIcon.astro";
+import ShareIcon from "@/components/icons/ShareIcon.astro";
 ---
 
 <div data-category={category} class="filter-item">
-    <h2 class="font-semibold p-1">{title}</h2>
-    <slot />
-    <p class="text-sm text-black/80 p-1">{description}</p>
+  <h2 class="font-semibold">{title}</h2>
+  <slot />
+  <div class="flex gap-1">
+    <HeartIcon />
+    <ShareIcon />
+  </div>
+  <p class="text-sm text-black/80">{description}</p>
 </div>
