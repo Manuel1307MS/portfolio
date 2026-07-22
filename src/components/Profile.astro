@@ -16,7 +16,7 @@ import GitHubIcon from "@/components/icons/GitHubIcon.astro";
       data-copy-email="manuel1307ms@gmail.com"
       aria-label="Copy email"
       title="Copy email"
-      class="cursor-pointer group"
+      class="cursor-pointer group flex items-center justify-center w-7.5 h-7.5"
     >
       <span
         class="block transition-transform duration-200 group-hover:scale-110"
@@ -60,7 +60,7 @@ import GitHubIcon from "@/components/icons/GitHubIcon.astro";
 
         button.classList.remove("group");
         button.innerHTML =
-          '<span class="text-[9px] tracking-wide text-green-600 font-semibold block w-[30px] h-[30px] leading-[30px] text-center">COPIED</span>';
+          '<span class="text-[9px] tracking-wide text-green-600 font-semibold flex items-center justify-center w-full h-full">COPIED</span>';
 
         setTimeout(() => {
           button.classList.add("group");
@@ -69,7 +69,7 @@ import GitHubIcon from "@/components/icons/GitHubIcon.astro";
       } catch (err) {
         button.classList.remove("group");
         button.innerHTML =
-          '<span class="text-[9px] tracking-wide text-red-600 font-semibold block w-[30px] h-[30px] leading-[30px] text-center">ERROR</span>';
+          '<span class="text-[9px] tracking-wide text-red-600 font-semibold flex items-center justify-center w-full h-full">ERROR</span>';
         setTimeout(() => {
           button.classList.add("group");
           button.innerHTML = originalContent;
