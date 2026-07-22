@@ -1,4 +1,9 @@
-<svg viewBox="0 0 1024 1024" fill="none" width="28" height="28"
+---
+import type { IconProps } from "@/components/icons/IconProps";
+const { width = 24, height = 24 } = Astro.props as IconProps;
+---
+
+<svg viewBox="0 0 1024 1024" fill="none" width={width} height={height}
   ><path
     fill-rule="evenodd"
     clip-rule="evenodd"

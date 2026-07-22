@@ -1,3 +1,8 @@
+---
+import type { IconProps } from "@/components/icons/IconProps";
+const { width = 24, height = 24 } = Astro.props as IconProps;
+---
+
 <button
   type="button"
   class="share-btn text-black cursor-pointer bg-transparent border-0 p-0"
@@ -5,8 +10,8 @@
 >
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="28"
-    height="28"
+    width={width}
+    height={height}
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
