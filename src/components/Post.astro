@@ -11,12 +11,12 @@ import HeartIcon from "@/components/icons/HeartIcon.astro";
 import ShareIcon from "@/components/icons/ShareIcon.astro";
 ---
 
-<div data-category={category} class="filter-item">
-  <h2 class="font-semibold">{title}</h2>
+<div data-category={category} class="filter-item border-b border-black/20">
+  <h2 class="font-semibold p-2">{title}</h2>
   <slot />
-  <div class="flex gap-1">
+  <div class="flex gap-1 p-2">
     <HeartIcon />
     <ShareIcon />
   </div>
-  <p class="text-sm text-black/80">{description}</p>
+  <p class="text-sm text-black/80 p-2">{description}</p>
 </div>
