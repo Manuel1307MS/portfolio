@@ -51,57 +51,32 @@ const data = [
 
 <Layout>
   <nav
-    class="bg-white border-b border-black/20 h-14 hidden md:flex items-center justify-center gap-2 sticky top-0 z-10"
+    class="bg-white border-b border-black/20 h-14 flex items-center justify-center gap-2 sticky top-0 z-10 px-4"
   >
     <button
       data-filter="all"
-      class="w-24 py-1.5 text-sm transition-all duration-50 bg-black text-white font-semibold cursor-pointer"
+      class="w-20 md:w-24 py-1.5 text-xs md:text-sm bg-black text-white font-semibold cursor-pointer"
       >Home</button
     >
     <button
       data-filter="projects"
-      class="w-24 py-1.5 text-sm transition-all duration-50 bg-transparent text-black/80 font-normal cursor-pointer"
+      class="w-20 md:w-24 py-1.5 text-xs md:text-sm bg-transparent text-black/80 font-normal cursor-pointer"
       >Projects</button
     >
     <button
       data-filter="education"
-      class="w-24 py-1.5 text-sm transition-all duration-50 bg-transparent text-black/80 font-normal cursor-pointer"
+      class="w-20 md:w-24 py-1.5 text-xs md:text-sm bg-transparent text-black/80 font-normal cursor-pointer"
       >Education</button
     >
     <button
       data-filter="skills"
-      class="w-24 py-1.5 text-sm transition-all duration-50 bg-transparent text-black/80 font-normal cursor-pointer"
+      class="w-20 md:w-24 py-1.5 text-xs md:text-sm bg-transparent text-black/80 font-normal cursor-pointer"
       >Skills</button
     >
   </nav>
 
   <LayoutSplit>
-    <div class="flex flex-col gap-4">
-      <nav
-        class="bg-white border-b border-black/20 h-14 flex md:hidden items-center justify-center gap-2 sticky top-0 z-10"
-      >
-        <button
-          data-filter="all"
-          class="w-24 py-1.5 text-sm transition-all duration-50 bg-black text-white font-semibold cursor-pointer"
-          >All</button
-        >
-        <button
-          data-filter="projects"
-          class="w-24 py-1.5 text-sm transition-all duration-50 bg-transparent text-black/80 font-normal cursor-pointer"
-          >Projects</button
-        >
-        <button
-          data-filter="education"
-          class="w-24 py-1.5 text-sm transition-all duration-50 bg-transparent text-black/80 font-normal cursor-pointer"
-          >Education</button
-        >
-        <button
-          data-filter="skills"
-          class="w-24 py-1.5 text-sm transition-all duration-50 bg-transparent text-black/80 font-normal cursor-pointer"
-          >Skills</button
-        >
-      </nav>
-
+    <div id="feed-container" class="flex flex-col gap-4 scroll-mt-18">
       <Post
         title={data[0].title}
         description={data[0].description}
@@ -109,7 +84,6 @@ const data = [
       >
         <div class="bg-red-500 h-50"></div>
       </Post>
-
       <Post
         title={data[1].title}
         description={data[1].description}
@@ -117,7 +91,6 @@ const data = [
       >
         <div class="bg-green-500 h-50"></div>
       </Post>
-
       <Post
         title={data[2].title}
         description={data[2].description}
@@ -125,7 +98,6 @@ const data = [
       >
         <div class="bg-blue-700 h-50"></div>
       </Post>
-
       <Post
         title={data[3].title}
         description={data[3].description}
@@ -133,7 +105,6 @@ const data = [
       >
         <div class="bg-orange-500 h-50"></div>
       </Post>
-
       <Post
         title={data[4].title}
         description={data[4].description}
@@ -141,7 +112,6 @@ const data = [
       >
         <div class="bg-purple-950 h-50"></div>
       </Post>
-
       <Post
         title={data[5].title}
         description={data[5].description}
@@ -149,7 +119,6 @@ const data = [
       >
         <div class="bg-red-800 h-50"></div>
       </Post>
-
       <Post
         title={data[6].title}
         description={data[6].description}
@@ -168,29 +137,31 @@ const data = [
   const buttons = document.querySelectorAll(
     "[data-filter]",
   ) as NodeListOf<HTMLElement>;
+  const feedContainer = document.getElementById("feed-container");
 
   const runFilter = (value: string | null) => {
     buttons.forEach((btn) => {
       const active = btn.getAttribute("data-filter") === value;
-
       btn.classList.toggle("bg-black", active);
       btn.classList.toggle("text-white", active);
       btn.classList.toggle("font-semibold", active);
-
       btn.classList.toggle("bg-transparent", !active);
       btn.classList.toggle("text-black/80", !active);
       btn.classList.toggle("font-normal", !active);
     });
 
-    const update = () =>
-      items.forEach((item) =>
-        item.classList.toggle(
-          "hidden",
-          value !== "all" && value !== item.getAttribute("data-category"),
-        ),
-      );
-    if (document.startViewTransition) document.startViewTransition(update);
-    else update();
+    items.forEach((item) =>
+      item.classList.toggle(
+        "hidden",
+        value !== "all" && value !== item.getAttribute("data-category"),
+      ),
+    );
+
+    if (value === "all") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      feedContainer?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   };
 
   buttons.forEach((btn) =>
