@@ -13,6 +13,13 @@ const { src, alt, ...postProps } = Astro.props;
 
 <Post {...postProps}>
   <div class="flex justify-center">
-    <Image src={src} alt={alt} width={500} height={400} />
+    <Image
+      src={src}
+      alt={alt}
+      width={900}
+      height={600}
+      densities={[1, 2]}
+      quality={90}
+    />
   </div>
 </Post>
