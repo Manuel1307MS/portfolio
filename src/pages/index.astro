@@ -86,26 +86,26 @@ const data = [
 
 <Layout>
   <nav
-    class="bg-white border-b border-black/20 h-14 flex items-center justify-center gap-2 sticky top-0 z-10 px-4"
+    class="bg-black h-14 flex items-center justify-center gap-1 md:gap-4 sticky top-0 z-10 px-4"
   >
     <button
       data-filter="all"
-      class="w-20 md:w-24 py-1.5 text-xs md:text-sm bg-black text-white font-semibold cursor-pointer"
+      class="w-20 md:w-24 text-white cursor-pointer font-bold text-base"
       >Home</button
     >
     <button
       data-filter="projects"
-      class="w-20 md:w-24 py-1.5 text-xs md:text-sm bg-transparent text-black/80 font-normal cursor-pointer"
+      class="w-20 md:w-24 text-white/90 cursor-pointer font-normal text-base"
       >Projects</button
     >
     <button
       data-filter="education"
-      class="w-20 md:w-24 py-1.5 text-xs md:text-sm bg-transparent text-black/80 font-normal cursor-pointer"
+      class="w-20 md:w-24 text-white/90 cursor-pointer font-normal text-base"
       >Education</button
     >
     <button
       data-filter="skills"
-      class="w-20 md:w-24 py-1.5 text-xs md:text-sm bg-transparent text-black/80 font-normal cursor-pointer"
+      class="w-20 md:w-24 text-white/90 cursor-pointer font-normal text-base"
       >Skills</button
     >
   </nav>
@@ -242,12 +242,12 @@ const data = [
   const runFilter = (value: string | null) => {
     buttons.forEach((btn) => {
       const active = btn.getAttribute("data-filter") === value;
-      btn.classList.toggle("bg-black", active);
       btn.classList.toggle("text-white", active);
-      btn.classList.toggle("font-semibold", active);
-      btn.classList.toggle("bg-transparent", !active);
-      btn.classList.toggle("text-black/80", !active);
+      btn.classList.toggle("font-bold", active);
+      btn.classList.toggle("text-base", active);
+      btn.classList.toggle("text-white/90", !active);
       btn.classList.toggle("font-normal", !active);
+      btn.classList.toggle("text-base", !active);
     });
 
     items.forEach((item) =>
