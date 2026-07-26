@@ -1,0 +1,56 @@
+---
+import type { ComponentProps } from "astro/types";
+import Post from "@/components/Post.astro";
+import { Image } from "astro:assets";
+import IconContainer from "@/components/IconContainer.astro";
+import GitHubIcon from "@/components/icons/GitHubIcon.astro";
+import ExternalLinkIcon from "@/components/icons/ExternalLinkIcon.astro";
+
+interface Props extends ComponentProps<typeof Post> {
+  src: ImageMetadata;
+  alt: string;
+  urlBackend?: string;
+  urlFrontend?: string;
+  urlLive?: string;
+}
+
+const { src, alt, urlBackend, urlFrontend, urlLive, ...postProps } =
+  Astro.props;
+---
+
+<Post {...postProps}>
+  <div class="flex flex-col justify-center items-center p-6 gap-6">
+    <div>
+      <Image src={src} alt={alt} layout="constrained" />
+    </div>
+    <div class="flex gap-8">
+      <a
+        class="transition-transform duration-200 hover:scale-110"
+        href={urlBackend}
+        target="_blank"
+        rel="noopener noreferrer"
+        ><IconContainer figcaption="Backend">
+          <GitHubIcon width="28" height="28" />
+        </IconContainer>
+        <a
+          class="transition-transform duration-200 hover:scale-110"
+          href={urlFrontend}
+          target="_blank"
+          rel="noopener noreferrer"
+          ><IconContainer figcaption="Frontend">
+            <GitHubIcon width="28" height="28" />
+          </IconContainer></a
+        >
+        <a
+          class="transition-transform duration-200 hover:scale-110"
+          href={urlLive}
+          target="_blank"
+          rel="noopener noreferrer"
+          ><IconContainer figcaption="Live">
+            <ExternalLinkIcon width="28" height="28" />
+          </IconContainer></a
+        >
+      </a>
+    </div>
+  </div>
+</Post>

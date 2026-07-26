@@ -3,12 +3,15 @@ import Layout from "@/layouts/Layout.astro";
 import LayoutSplit from "@/layouts/LayoutSplit.astro";
 import Post from "@/components/Post.astro";
 import ImagePost from "@/components/ImagePost.astro";
+import ProjectPost from "@/components/ProjectPost.astro";
 
 import hightschool from "@/assets/highshool.jpg";
 import universityofxalapa from "@/assets/universityofxalapa.jpg";
 import quicklearning from "@/assets/quicklearning.jpg";
 
-import IconContainer from "@/components/icons/IconContainer.astro";
+import bufonio from "@/assets/bufonio.jpg";
+
+import IconContainer from "@/components/IconContainer.astro";
 
 import JavaIcon from "@/components/icons/JavaIcon.astro";
 import SpringIcon from "@/components/icons/SpringIcon.astro";
@@ -141,13 +144,16 @@ const data = [
           </IconContainer>
         </div>
       </Post>
-      <Post
+      <ProjectPost
         title={data[1].title}
         description={data[1].description}
         category={data[1].category}
-      >
-        <div class="bg-red-500 h-50"></div>
-      </Post>
+        src={bufonio}
+        alt="Bufonio"
+        urlBackend="https://github.com/Manuel1307MS/bufonio"
+        urlFrontend="https://github.com/Manuel1307MS/bufonio-landing"
+        urlLive="https://bufonio.vercel.app"
+      />
       <Post
         title={data[2].title}
         description={data[2].description}
