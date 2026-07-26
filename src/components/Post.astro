@@ -13,7 +13,9 @@ const { title, description, category } = Astro.props;
 
 <div data-category={category} class="filter-item border-b border-black/20">
   <h2 class="font-semibold p-2">{title}</h2>
-  <slot />
+  <div class="p-6">
+    <slot />
+  </div>
   <div class="flex gap-1 p-2">
     <HeartIcon width="28" height="28" />
     <ShareIcon width="28" height="28" />
