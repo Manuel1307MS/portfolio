@@ -1,7 +1,7 @@
 ---
 import type { ComponentProps } from "astro/types";
 import Post from "@/components/Post.astro";
-import { Image } from "astro:assets";
+import ImageContainer from "@/components/ImageContainer.astro";
 
 interface Props extends ComponentProps<typeof Post> {
   src: ImageMetadata;
@@ -13,6 +13,6 @@ const { src, alt, ...postProps } = Astro.props;
 
 <Post {...postProps}>
   <div class="flex justify-center">
-    <Image src={src} alt={alt} layout="constrained" />
+    <ImageContainer src={src} alt={alt} />
   </div>
 </Post>
