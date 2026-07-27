@@ -35,36 +35,21 @@ import VercelIcon from "@/components/icons/VercelIcon.astro";
 import RenderIcon from "@/components/icons/RenderIcon.astro";
 import SupabaseIcon from "@/components/icons/SupabaseIcon.astro";
 
-const data = [
-  {
-    title: "Platforms",
-    description:
-      "To continue strengthening my tech stack, I've learned various tools and platforms that help me develop my projects.",
-    category: "skills",
-  },
+const dataProjects = [
   {
     title: "Bufonio",
     description:
       "Bufonio is an anonymous feedback platform that uses artificial intelligence to turn employee feedback into constructive messages with a touch of humor, fostering more open communication and reducing tension between teams and leaders.",
     category: "projects",
   },
+];
+
+const dataEducation = [
   {
-    title: "Frontend",
+    title: "High school",
     description:
-      "As part of my growth as a front-end developer, I integrated TypeScript and Tailwind CSS into my projects, improving code quality and enabling me to build modern, scalable, and well-structured interfaces.",
-    category: "skills",
-  },
-  {
-    title: "Quick Learning",
-    description:
-      "To expand my professional profile, I studied English at Quick Learning, where I achieved a B1 level, which allows me to communicate fluently in a variety of situations.",
+      "My training as a high school graduate with a technical degree in computer science was the starting point for discovering my interest in programming and technology.",
     category: "education",
-  },
-  {
-    title: "Frontend",
-    description:
-      "Looking to strengthen my profile as a developer, I began learning front-end development, gaining knowledge in HTML, CSS, and JavaScript, as well as modern frameworks such as React and Astro.",
-    category: "skills",
   },
   {
     title: "University of Xalapa",
@@ -73,16 +58,37 @@ const data = [
     category: "education",
   },
   {
+    title: "Quick Learning",
+    description:
+      "To expand my professional profile, I studied English at Quick Learning, where I achieved a B1 level, which allows me to communicate fluently in a variety of situations.",
+    category: "education",
+  },
+];
+
+const dataSkills = [
+  {
     title: "Backend",
     description:
       "Driven by curiosity, I studied Java and developed my first applications while learning the fundamentals of software development. I then delved deeper into Spring and SQL, which allowed me to advance my training as a backend developer.",
     category: "skills",
   },
   {
-    title: "High school",
+    title: "Frontend",
     description:
-      "My training as a high school graduate with a technical degree in computer science was the starting point for discovering my interest in programming and technology.",
-    category: "education",
+      "Looking to strengthen my profile as a developer, I began learning front-end development, gaining knowledge in HTML, CSS, and JavaScript, as well as modern frameworks such as React and Astro.",
+    category: "skills",
+  },
+  {
+    title: "Frontend",
+    description:
+      "As part of my growth as a front-end developer, I integrated TypeScript and Tailwind CSS into my projects, improving code quality and enabling me to build modern, scalable, and well-structured interfaces.",
+    category: "skills",
+  },
+  {
+    title: "Platforms",
+    description:
+      "To continue strengthening my tech stack, I've learned various tools and platforms that help me develop my projects.",
+    category: "skills",
   },
 ];
 ---
@@ -116,9 +122,9 @@ const data = [
   <LayoutSplit>
     <div id="feed-container" class="flex flex-col gap-4 scroll-mt-18">
       <Post
-        title={data[0].title}
-        description={data[0].description}
-        category={data[0].category}
+        title={dataSkills[3].title}
+        description={dataSkills[3].description}
+        category={dataSkills[3].category}
       >
         <div class="flex flex-wrap justify-center gap-10">
           <IconContainer figcaption="Git">
@@ -145,9 +151,9 @@ const data = [
         </div>
       </Post>
       <ProjectPost
-        title={data[1].title}
-        description={data[1].description}
-        category={data[1].category}
+        title={dataProjects[0].title}
+        description={dataProjects[0].description}
+        category={dataProjects[0].category}
         src={bufonio}
         alt="Bufonio"
         urlBackend="https://github.com/Manuel1307MS/bufonio"
@@ -155,9 +161,9 @@ const data = [
         urlLive="https://bufonio.vercel.app"
       />
       <Post
-        title={data[2].title}
-        description={data[2].description}
-        category={data[2].category}
+        title={dataSkills[2].title}
+        description={dataSkills[2].description}
+        category={dataSkills[2].category}
       >
         <div class="flex flex-wrap justify-center gap-10">
           <IconContainer figcaption="TypeScript">
@@ -169,16 +175,16 @@ const data = [
         </div>
       </Post>
       <ImagePost
-        title={data[3].title}
-        description={data[3].description}
-        category={data[3].category}
+        title={dataEducation[2].title}
+        description={dataEducation[2].description}
+        category={dataEducation[2].category}
         src={quicklearning}
         alt="Quick Learning"
       />
       <Post
-        title={data[4].title}
-        description={data[4].description}
-        category={data[4].category}
+        title={dataSkills[1].title}
+        description={dataSkills[1].description}
+        category={dataSkills[1].category}
       >
         <div class="flex flex-wrap justify-center gap-10">
           <IconContainer figcaption="HTML">
@@ -199,16 +205,16 @@ const data = [
         </div>
       </Post>
       <ImagePost
-        title={data[5].title}
-        description={data[5].description}
-        category={data[5].category}
+        title={dataEducation[1].title}
+        description={dataEducation[1].description}
+        category={dataEducation[1].category}
         src={universityofxalapa}
         alt="University of Xalapa"
       />
       <Post
-        title={data[6].title}
-        description={data[6].description}
-        category={data[6].category}
+        title={dataSkills[0].title}
+        description={dataSkills[0].description}
+        category={dataSkills[0].category}
       >
         <div class="flex flex-wrap justify-center gap-10">
           <IconContainer figcaption="Java">
@@ -226,9 +232,9 @@ const data = [
         </div>
       </Post>
       <ImagePost
-        title={data[7].title}
-        description={data[7].description}
-        category={data[7].category}
+        title={dataEducation[0].title}
+        description={dataEducation[0].description}
+        category={dataEducation[0].category}
         src={highschool}
         alt="High school"
       />
