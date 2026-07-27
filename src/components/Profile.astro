@@ -7,35 +7,27 @@ import GitHubIcon from "@/components/icons/GitHubIcon.astro";
   <h1 class="font-black text-2xl tracking-tighter text-center">
     MANUEL MURILLO
   </h1>
-  <div class="flex flex-col items-center gap-1">
-    <h2 class="font-semibold text-center">Java Backend Developer</h2>
-    <p class="font-semibold text-center">Mexico</p>
+  <div class="flex flex-col items-center gap-1 font-semibold text-center">
+    <h2>Java Backend Developer</h2>
+    <p>Mexico</p>
   </div>
   <div class="flex items-center gap-8">
     <button
       data-copy-email="manuel1307ms@gmail.com"
       aria-label="Copy email"
       title="Copy email"
-      class="cursor-pointer group flex items-center justify-center w-7.5 h-7.5"
+      class="cursor-pointer transition-transform duration-200 hover:scale-110"
     >
-      <span
-        class="block transition-transform duration-200 group-hover:scale-110"
-      >
-        <GmailIcon width="30" height="30" />
-      </span>
+      <GmailIcon width="30" height="30" />
     </button>
     <a
       href="https://github.com/Manuel1307MS"
       target="_blank"
       aria-label="GitHub"
       title="GitHub"
-      class="group"
+      class="transition-transform duration-200 hover:scale-110"
     >
-      <span
-        class="block transition-transform duration-200 group-hover:scale-110"
-      >
-        <GitHubIcon width="28" height="28" />
-      </span>
+      <GitHubIcon width="28" height="28" />
     </a>
   </div>
   <p class="text-sm text-black/80 text-justify">
@@ -46,10 +38,9 @@ import GitHubIcon from "@/components/icons/GitHubIcon.astro";
 
 <script>
   const setupCopyEmail = () => {
-    const button = document.querySelector("[data-copy-email]");
+    const button =
+      document.querySelector<HTMLButtonElement>("[data-copy-email]");
     if (!button) return;
-
-    const originalContent = button.innerHTML;
 
     button.addEventListener("click", async () => {
       const email = button.getAttribute("data-copy-email");
@@ -57,23 +48,17 @@ import GitHubIcon from "@/components/icons/GitHubIcon.astro";
 
       try {
         await navigator.clipboard.writeText(email);
-
-        button.classList.remove("group");
-        button.innerHTML =
-          '<span class="text-[9px] tracking-wide text-green-600 font-semibold flex items-center justify-center w-full h-full">COPIED</span>';
-
-        setTimeout(() => {
-          button.classList.add("group");
-          button.innerHTML = originalContent;
-        }, 1500);
-      } catch (err) {
-        button.classList.remove("group");
-        button.innerHTML =
-          '<span class="text-[9px] tracking-wide text-red-600 font-semibold flex items-center justify-center w-full h-full">ERROR</span>';
-        setTimeout(() => {
-          button.classList.add("group");
-          button.innerHTML = originalContent;
-        }, 1500);
+        window.dispatchEvent(
+          new CustomEvent("show-toast", {
+            detail: { message: "Email copied to clipboard" },
+          }),
+        );
+      } catch {
+        window.dispatchEvent(
+          new CustomEvent("show-toast", {
+            detail: { message: "Failed to copy email", isError: true },
+          }),
+        );
       }
     });
   };

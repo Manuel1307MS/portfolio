@@ -1,0 +1,57 @@
+---
+interface Props {
+  message?: string;
+}
+
+const { message = "" } = Astro.props;
+---
+
+<div
+  id="toast"
+  role="status"
+  aria-live="polite"
+  class="fixed top-12 left-1/2 -translate-x-1/2 z-50 px-4 py-1.5 text-sm text-white bg-black opacity-0 pointer-events-none transition-all duration-200 -translate-y-2"
+>
+  <span id="toast-message">{message}</span>
+</div>
+
+<script>
+  let timeout: ReturnType<typeof setTimeout>;
+
+  const showToast = (message: string, isError = false) => {
+    const toast = document.getElementById("toast");
+    const toastMessage = document.getElementById("toast-message");
+    if (!toast || !toastMessage) return;
+
+    toastMessage.textContent = message;
+
+    toast.classList.toggle("bg-red-600", isError);
+    toast.classList.toggle("bg-black", !isError);
+
+    toast.classList.remove(
+      "opacity-0",
+      "pointer-events-none",
+      "-translate-y-2",
+    );
+
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      toast.classList.add("opacity-0", "pointer-events-none", "-translate-y-2");
+    }, 2500);
+  };
+
+  const init = () => {
+    window.addEventListener("show-toast", (e: Event) => {
+      const customEvent = e as CustomEvent<{
+        message: string;
+        isError?: boolean;
+      }>;
+      if (customEvent.detail?.message) {
+        showToast(customEvent.detail.message, customEvent.detail.isError);
+      }
+    });
+  };
+
+  init();
+  document.addEventListener("astro:page-load", init);
+</script>
