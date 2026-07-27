@@ -1,6 +1,11 @@
 ---
 import "@/global.css";
 import Toast from "@/components/Toast.astro";
+
+const {
+  title = "Manuel Murillo",
+  description = "Java Backend Developer specializing in Spring Boot.",
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -8,7 +13,8 @@ import Toast from "@/components/Toast.astro";
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>Manuel Murillo</title>
+    <title>{title}</title>
+    <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
   <body>
