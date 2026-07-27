@@ -1,0 +1,126 @@
+---
+import type { ComponentProps } from "astro/types";
+import Post from "@/components/Post.astro";
+
+interface Props extends ComponentProps<typeof Post> {
+  adTitle: string;
+  message: string;
+}
+
+const { adTitle, message, ...postProps } = Astro.props;
+const key = import.meta.env.PUBLIC_WEB3FORMS_KEY;
+---
+
+<Post {...postProps}>
+  <form data-contact-form class="flex flex-col gap-4">
+    <input type="hidden" name="access_key" value={key} />
+    <input type="hidden" name="subject" value="New message" />
+    <input
+      type="checkbox"
+      name="botcheck"
+      class="hidden"
+      style="display: none;"
+    />
+
+    <div class="flex justify-center">
+      <h2 class="font-semibold">{adTitle}</h2>
+    </div>
+
+    <label class="flex flex-col gap-1">
+      <span class="text-sm text-black/80">Name</span>
+      <input
+        type="text"
+        name="name"
+        required
+        class="bg-black/5 text-black/80"
+      />
+    </label>
+
+    <label class="flex flex-col gap-1">
+      <span class="text-sm text-black/80">Email</span>
+      <input
+        type="email"
+        name="email"
+        required
+        class="bg-black/5 text-black/80"
+      />
+    </label>
+
+    <label class="flex flex-col gap-1">
+      <span class="text-sm text-black/80">{message}</span>
+      <textarea
+        name="message"
+        rows="3"
+        required
+        class="bg-black/5 text-black/80"></textarea>
+    </label>
+
+    <div class="flex justify-center">
+      <button
+        type="submit"
+        data-submit-btn
+        class="cursor-pointer py-1.5 text-sm text-white bg-black w-40 transition-transform duration-200 hover:scale-110"
+        >Send message</button
+      >
+    </div>
+  </form>
+</Post>
+
+<script>
+  const setupForms = () => {
+    const forms = document.querySelectorAll<HTMLFormElement>(
+      "[data-contact-form]",
+    );
+
+    forms.forEach((form) => {
+      if (form.dataset.initialized) return;
+      form.dataset.initialized = "true";
+
+      const submitBtn =
+        form.querySelector<HTMLButtonElement>("[data-submit-btn]");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = "Sending...";
+        }
+
+        try {
+          const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: new FormData(form),
+          });
+
+          const data = await response.json();
+
+          if (data.success) {
+            window.dispatchEvent(
+              new CustomEvent("show-toast", {
+                detail: { message: "Message sent successfully" },
+              }),
+            );
+            form.reset();
+          } else {
+            throw new Error(data.message);
+          }
+        } catch {
+          window.dispatchEvent(
+            new CustomEvent("show-toast", {
+              detail: { message: "Failed to send message", isError: true },
+            }),
+          );
+        } finally {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Send message";
+          }
+        }
+      });
+    });
+  };
+
+  setupForms();
+  document.addEventListener("astro:page-load", setupForms);
+</script>

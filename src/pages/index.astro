@@ -4,6 +4,7 @@ import LayoutSplit from "@/layouts/LayoutSplit.astro";
 import Post from "@/components/Post.astro";
 import ImagePost from "@/components/ImagePost.astro";
 import ProjectPost from "@/components/ProjectPost.astro";
+import AdPost from "@/components/AdPost.astro";
 
 import highschool from "@/assets/highschool.jpeg";
 import universityofxalapa from "@/assets/universityofxalapa.jpeg";
@@ -34,6 +35,25 @@ import CloudflareIcon from "@/components/icons/CloudflareIcon.astro";
 import VercelIcon from "@/components/icons/VercelIcon.astro";
 import RenderIcon from "@/components/icons/RenderIcon.astro";
 import SupabaseIcon from "@/components/icons/SupabaseIcon.astro";
+
+const dataAds = [
+  {
+    title: "Ad",
+    description:
+      "Every great product starts with an idea, let's create yours together.",
+    category: "education",
+    adTitle: "This spot is reserved for you",
+    message: "Tell me your vision.",
+  },
+  {
+    title: "Ad",
+    description:
+      "Let's build a digital product that stands out and delivers real results.",
+    category: "projects",
+    adTitle: "Your project could be next",
+    message: "Let's talk about your idea.",
+  },
+];
 
 const dataProjects = [
   {
@@ -160,6 +180,13 @@ const dataSkills = [
         urlFrontend="https://github.com/Manuel1307MS/bufonio-landing"
         urlLive="https://bufonio.vercel.app"
       />
+      <AdPost
+        title={dataAds[1].title}
+        description={dataAds[1].description}
+        category={dataAds[1].category}
+        adTitle={dataAds[1].adTitle}
+        message={dataAds[1].message}
+      />
       <Post
         title={dataSkills[2].title}
         description={dataSkills[2].description}
@@ -231,6 +258,13 @@ const dataSkills = [
           </IconContainer>
         </div>
       </Post>
+      <AdPost
+        title={dataAds[0].title}
+        description={dataAds[0].description}
+        category={dataAds[0].category}
+        adTitle={dataAds[0].adTitle}
+        message={dataAds[0].message}
+      />
       <ImagePost
         title={dataEducation[0].title}
         description={dataEducation[0].description}
