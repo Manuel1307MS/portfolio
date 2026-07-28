@@ -22,28 +22,16 @@ const { src, alt, urlBackend, urlFrontend, urlLive, ...postProps } =
   <div class="flex flex-col items-center gap-4">
     <ImageContainer src={src} alt={alt} />
     <div class="flex gap-8">
-      <a
-        class="transition-transform duration-200 hover:scale-110"
-        href={urlBackend}
-        target="_blank"
-        rel="noopener noreferrer"
+      <a href={urlBackend} target="_blank" rel="noopener noreferrer"
         ><IconContainer figcaption="Backend">
           <GitHubIcon width="28" height="28" />
         </IconContainer>
-        <a
-          class="transition-transform duration-200 hover:scale-110"
-          href={urlFrontend}
-          target="_blank"
-          rel="noopener noreferrer"
+        <a href={urlFrontend} target="_blank" rel="noopener noreferrer"
           ><IconContainer figcaption="Frontend">
             <GitHubIcon width="28" height="28" />
           </IconContainer></a
         >
-        <a
-          class="transition-transform duration-200 hover:scale-110"
-          href={urlLive}
-          target="_blank"
-          rel="noopener noreferrer"
+        <a href={urlLive} target="_blank" rel="noopener noreferrer"
           ><IconContainer figcaption="Live">
             <ExternalLinkIcon width="28" height="28" />
           </IconContainer></a
