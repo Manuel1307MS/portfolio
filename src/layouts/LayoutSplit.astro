@@ -1,20 +1,20 @@
 ---
-import Profile from "@/components/Profile.astro"
-import Skills from "@/components/Skills.astro"
+import Profile from "@/components/Profile.astro";
+import Skills from "@/components/Skills.astro";
 ---
 
-<div class="block md:grid md:grid-cols-3 w-full">
-    
-    <div class="order-1 md:order-1 flex flex-col md:items-end md:sticky md:top-14 md:h-fit p-4">
-        <Profile/>
+<div class="flex flex-col md:grid md:grid-cols-3 w-full p-4 gap-4">
+    <div
+        class="order-1 md:order-1 flex flex-col md:items-end md:sticky md:top-18 md:h-fit"
+    >
+        <Profile />
     </div>
 
-    <div class="order-2 md:order-3 flex flex-col md:sticky md:top-14 md:h-fit p-4">
-        <Skills/>
+    <div class="order-2 md:order-3 flex flex-col md:sticky md:top-18 md:h-fit">
+        <Skills />
     </div>
 
-    <div class="order-3 md:order-2 p-4 md:h-fit">
-        <slot></slot>
+    <div class="order-3 md:order-2 md:h-fit">
+        <slot />
     </div>
-    
 </div>

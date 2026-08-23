@@ -11,14 +11,17 @@ interface Props {
 const { title, description, category } = Astro.props;
 ---
 
-<div data-category={category} class="filter-item border-b border-black/20">
-  <h2 class="font-semibold p-2">{title}</h2>
-  <div class="p-6">
+<div
+  data-category={category}
+  class="filter-item flex flex-col border border-black/10 p-4 gap-4"
+>
+  <h2 class="font-semibold">{title}</h2>
+  <div class="">
     <slot />
   </div>
-  <div class="flex gap-2 p-2">
+  <div class="flex gap-2">
     <HeartIcon width="28" height="28" />
     <ShareIcon width="28" height="28" />
   </div>
-  <p class="text-sm text-black/80 p-2">{description}</p>
+  <p class="text-sm text-black/80">{description}</p>
 </div>
