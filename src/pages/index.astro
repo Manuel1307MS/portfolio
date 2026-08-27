@@ -1,13 +1,8 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import LayoutSplit from "@/layouts/LayoutSplit.astro";
-import ImagePost from "@/components/ImagePost.astro";
 import ProjectPost from "@/components/ProjectPost.astro";
 import AdPost from "@/components/AdPost.astro";
-
-import highschool from "@/assets/highschool.jpeg";
-import universityofxalapa from "@/assets/universityofxalapa.jpeg";
-import quicklearning from "@/assets/quicklearning.jpeg";
 
 import bufonio from "@/assets/bufonio.jpeg";
 
@@ -15,6 +10,10 @@ import Backend from "@/components/skills/Backend.astro";
 import Frontend1 from "@/components/skills/Frontend1.astro";
 import Frontend2 from "@/components/skills/Frontend2.astro";
 import Tools from "@/components/skills/Tools.astro";
+
+import HighSchool from "@/components/education/HighSchool.astro";
+import UniversityOfXalapa from "@/components/education/UniversityOfXalapa.astro";
+import QuickLearning from "@/components/education/QuickLearning.astro";
 
 const dataAds = [
   {
@@ -41,27 +40,6 @@ const dataProjects = [
     description:
       "Bufonio is an anonymous feedback platform that uses artificial intelligence to turn employee feedback into constructive messages with a touch of humor, fostering more open communication and reducing tension between teams and leaders.",
     category: "projects",
-  },
-];
-
-const dataEducation = [
-  {
-    title: "High school",
-    description:
-      "My training as a high school graduate with a technical degree in computer science was the starting point for discovering my interest in programming and technology.",
-    category: "education",
-  },
-  {
-    title: "University of Xalapa",
-    description:
-      "With the goal of designing software solutions that meet business needs, I decided to study International Business to gain strategic knowledge of trade, finance, and management.",
-    category: "education",
-  },
-  {
-    title: "Quick Learning",
-    description:
-      "To expand my professional profile, I studied English at Quick Learning, where I achieved a B1 level, which allows me to communicate fluently in a variety of situations.",
-    category: "education",
   },
 ];
 ---
@@ -113,21 +91,9 @@ const dataEducation = [
         message={dataAds[1].message}
       />
       <Frontend2 />
-      <ImagePost
-        title={dataEducation[2].title}
-        description={dataEducation[2].description}
-        category={dataEducation[2].category}
-        src={quicklearning}
-        alt="Quick Learning"
-      />
+      <QuickLearning />
       <Frontend1 />
-      <ImagePost
-        title={dataEducation[1].title}
-        description={dataEducation[1].description}
-        category={dataEducation[1].category}
-        src={universityofxalapa}
-        alt="University of Xalapa"
-      />
+      <UniversityOfXalapa />
       <Backend />
       <AdPost
         title={dataAds[0].title}
@@ -136,13 +102,7 @@ const dataEducation = [
         adTitle={dataAds[0].adTitle}
         message={dataAds[0].message}
       />
-      <ImagePost
-        title={dataEducation[0].title}
-        description={dataEducation[0].description}
-        category={dataEducation[0].category}
-        src={highschool}
-        alt="High school"
-      />
+      <HighSchool />
     </div>
   </LayoutSplit>
 </Layout>

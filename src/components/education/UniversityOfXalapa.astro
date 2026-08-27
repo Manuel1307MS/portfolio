@@ -1,0 +1,19 @@
+---
+import ImagePost from "@/components/ImagePost.astro";
+import universityofxalapa from "@/assets/universityofxalapa.jpeg";
+
+const data = {
+    title: "University of Xalapa",
+    description:
+        "With the goal of designing software solutions that meet business needs, I decided to study International Business to gain strategic knowledge of trade, finance, and management.",
+    category: "education",
+};
+---
+
+<ImagePost
+    title={data.title}
+    description={data.description}
+    category={data.category}
+    src={universityofxalapa}
+    alt="University of Xalapa"
+/>

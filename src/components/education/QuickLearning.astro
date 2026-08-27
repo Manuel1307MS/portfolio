@@ -1,0 +1,19 @@
+---
+import ImagePost from "@/components/ImagePost.astro";
+import quicklearning from "@/assets/quicklearning.jpeg";
+
+const data = {
+    title: "Quick Learning",
+    description:
+        "To expand my professional profile, I studied English at Quick Learning, where I achieved a B1 level, which allows me to communicate fluently in a variety of situations.",
+    category: "education",
+};
+---
+
+<ImagePost
+    title={data.title}
+    description={data.description}
+    category={data.category}
+    src={quicklearning}
+    alt="Quick Learning"
+/>

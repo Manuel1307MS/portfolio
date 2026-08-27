@@ -1,0 +1,19 @@
+---
+import ImagePost from "@/components/ImagePost.astro";
+import highschool from "@/assets/highschool.jpeg";
+
+const data = {
+    title: "High School",
+    description:
+        "My training as a high school graduate with a technical degree in computer science was the starting point for discovering my interest in programming and technology.",
+    category: "education",
+};
+---
+
+<ImagePost
+    title={data.title}
+    description={data.description}
+    category={data.category}
+    src={highschool}
+    alt="High School"
+/>
