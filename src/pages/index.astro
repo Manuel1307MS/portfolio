@@ -2,7 +2,6 @@
 import Layout from "@/layouts/Layout.astro";
 import LayoutSplit from "@/layouts/LayoutSplit.astro";
 import ProjectPost from "@/components/ProjectPost.astro";
-import AdPost from "@/components/AdPost.astro";
 
 import bufonio from "@/assets/bufonio.jpeg";
 
@@ -15,24 +14,8 @@ import HighSchool from "@/components/education/HighSchool.astro";
 import UniversityOfXalapa from "@/components/education/UniversityOfXalapa.astro";
 import QuickLearning from "@/components/education/QuickLearning.astro";
 
-const dataAds = [
-  {
-    title: "Ad",
-    description:
-      "Every great product starts with an idea, let's create yours together.",
-    category: "education",
-    adTitle: "This spot is reserved for you",
-    message: "Tell me your vision.",
-  },
-  {
-    title: "Ad",
-    description:
-      "Let's build a digital product that stands out and delivers real results.",
-    category: "projects",
-    adTitle: "Your project could be next",
-    message: "Let's talk about your idea.",
-  },
-];
+import Ad1 from "@/components/ads/Ad1.astro";
+import Ad2 from "@/components/ads/Ad2.astro";
 
 const dataProjects = [
   {
@@ -83,25 +66,13 @@ const dataProjects = [
         urlFrontend="https://github.com/Manuel1307MS/bufonio-monorepo"
         urlLive="https://bufonio.manuelmurillo.dev"
       />
-      <AdPost
-        title={dataAds[1].title}
-        description={dataAds[1].description}
-        category={dataAds[1].category}
-        adTitle={dataAds[1].adTitle}
-        message={dataAds[1].message}
-      />
+      <Ad2 />
       <Frontend2 />
       <QuickLearning />
       <Frontend1 />
       <UniversityOfXalapa />
       <Backend />
-      <AdPost
-        title={dataAds[0].title}
-        description={dataAds[0].description}
-        category={dataAds[0].category}
-        adTitle={dataAds[0].adTitle}
-        message={dataAds[0].message}
-      />
+      <Ad1 />
       <HighSchool />
     </div>
   </LayoutSplit>

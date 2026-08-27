@@ -1,0 +1,20 @@
+---
+import AdPost from "@/components/AdPost.astro";
+
+const data = {
+    title: "Ad",
+    description:
+        "Let's build a digital product that stands out and delivers real results.",
+    category: "projects",
+    adTitle: "Your project could be next",
+    message: "Let's talk about your idea.",
+};
+---
+
+<AdPost
+    title={data.title}
+    description={data.description}
+    category={data.category}
+    adTitle={data.adTitle}
+    message={data.message}
+/>
