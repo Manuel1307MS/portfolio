@@ -1,0 +1,36 @@
+---
+import Post from "@/components/Post.astro";
+import IconContainer from "@/components/IconContainer.astro";
+import JavaIcon from "@/components/icons/JavaIcon.astro";
+import SpringIcon from "@/components/icons/SpringIcon.astro";
+import MySQLIcon from "@/components/icons/MySQLIcon.astro";
+import PostgreSQLIcon from "@/components/icons/PostgreSQLIcon.astro";
+
+const data = {
+    title: "Backend",
+    description:
+        "Driven by curiosity, I studied Java and developed my first applications while learning the fundamentals of software development. I then delved deeper into Spring and SQL, which allowed me to advance my training as a backend developer.",
+    category: "skills",
+};
+---
+
+<Post
+    title={data.title}
+    description={data.description}
+    category={data.category}
+>
+    <div class="flex flex-wrap justify-center gap-10">
+        <IconContainer figcaption="Java">
+            <JavaIcon width="50" height="50" />
+        </IconContainer>
+        <IconContainer figcaption="Spring">
+            <SpringIcon width="50" height="50" />
+        </IconContainer>
+        <IconContainer figcaption="MySQL">
+            <MySQLIcon width="50" height="50" />
+        </IconContainer>
+        <IconContainer figcaption="PostgreSQL">
+            <PostgreSQLIcon width="50" height="50" />
+        </IconContainer>
+    </div>
+</Post>

@@ -1,0 +1,28 @@
+---
+import Post from "@/components/Post.astro";
+import IconContainer from "@/components/IconContainer.astro";
+import TypeScriptIcon from "@/components/icons/TypeScriptIcon.astro";
+import TailwindIcon from "@/components/icons/TailwindIcon.astro";
+
+const data = {
+    title: "Frontend",
+    description:
+        "As part of my growth as a front-end developer, I integrated TypeScript and Tailwind CSS into my projects, improving code quality and enabling me to build modern, scalable, and well-structured interfaces.",
+    category: "skills",
+};
+---
+
+<Post
+    title={data.title}
+    description={data.description}
+    category={data.category}
+>
+    <div class="flex flex-wrap justify-center gap-10">
+        <IconContainer figcaption="TypeScript">
+            <TypeScriptIcon width="50" height="50" />
+        </IconContainer>
+        <IconContainer figcaption="Tailwind">
+            <TailwindIcon width="50" height="50" />
+        </IconContainer>
+    </div>
+</Post>

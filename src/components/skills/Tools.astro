@@ -1,0 +1,56 @@
+---
+import Post from "@/components/Post.astro";
+import IconContainer from "@/components/IconContainer.astro";
+import GitIcon from "@/components/icons/GitIcon.astro";
+import GitHubIcon from "@/components/icons/GitHubIcon.astro";
+import TurborepoIcon from "@/components/icons/TurborepoIcon.astro";
+import DockerIcon from "@/components/icons/DockerIcon.astro";
+import HoppscotchIcon from "@/components/icons/HoppscotchIcon.astro";
+import SupabaseIcon from "@/components/icons/SupabaseIcon.astro";
+import VercelIcon from "@/components/icons/VercelIcon.astro";
+import RenderIcon from "@/components/icons/RenderIcon.astro";
+import CloudflareIcon from "@/components/icons/CloudflareIcon.astro";
+
+const data = {
+    title: "Tools",
+    description:
+        "To continue strengthening my tech stack, I've learned various tools and platforms that help me develop my projects.",
+    category: "skills",
+};
+---
+
+<Post
+    title={data.title}
+    description={data.description}
+    category={data.category}
+>
+    <div class="flex flex-wrap justify-center gap-10">
+        <IconContainer figcaption="Git">
+            <GitIcon width="50" height="50" />
+        </IconContainer>
+        <IconContainer figcaption="GitHub">
+            <GitHubIcon width="50" height="50" />
+        </IconContainer>
+        <IconContainer figcaption="Turborepo">
+            <TurborepoIcon width="50" height="50" />
+        </IconContainer>
+        <IconContainer figcaption="Docker">
+            <DockerIcon width="50" height="50" />
+        </IconContainer>
+        <IconContainer figcaption="Hoppscotch">
+            <HoppscotchIcon width="50" height="50" />
+        </IconContainer>
+        <IconContainer figcaption="Supabase">
+            <SupabaseIcon width="50" height="50" />
+        </IconContainer>
+        <IconContainer figcaption="Vercel">
+            <VercelIcon width="50" height="50" />
+        </IconContainer>
+        <IconContainer figcaption="Render">
+            <RenderIcon width="50" height="50" />
+        </IconContainer>
+        <IconContainer figcaption="Cloudflare">
+            <CloudflareIcon width="50" height="50" />
+        </IconContainer>
+    </div>
+</Post>

@@ -1,0 +1,40 @@
+---
+import Post from "@/components/Post.astro";
+import IconContainer from "@/components/IconContainer.astro";
+import HTMLIcon from "@/components/icons/HTMLIcon.astro";
+import CSSIcon from "@/components/icons/CSSIcon.astro";
+import JavaScriptIcon from "@/components/icons/JavaScriptIcon.astro";
+import ReactIcon from "@/components/icons/ReactIcon.astro";
+import AstroIcon from "@/components/icons/AstroIcon.astro";
+
+const data = {
+    title: "Frontend",
+    description:
+        "Looking to strengthen my profile as a developer, I began learning front-end development, gaining knowledge in HTML, CSS, and JavaScript, as well as modern frameworks such as React and Astro.",
+    category: "skills",
+};
+---
+
+<Post
+    title={data.title}
+    description={data.description}
+    category={data.category}
+>
+    <div class="flex flex-wrap justify-center gap-10">
+        <IconContainer figcaption="HTML">
+            <HTMLIcon width="50" height="50" />
+        </IconContainer>
+        <IconContainer figcaption="CSS">
+            <CSSIcon width="50" height="50" />
+        </IconContainer>
+        <IconContainer figcaption="JavaScript">
+            <JavaScriptIcon width="50" height="50" />
+        </IconContainer>
+        <IconContainer figcaption="React">
+            <ReactIcon width="50" height="50" />
+        </IconContainer>
+        <IconContainer figcaption="Astro">
+            <AstroIcon width="50" height="50" />
+        </IconContainer>
+    </div>
+</Post>

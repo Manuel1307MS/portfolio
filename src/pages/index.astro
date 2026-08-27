@@ -1,7 +1,6 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import LayoutSplit from "@/layouts/LayoutSplit.astro";
-import Post from "@/components/Post.astro";
 import ImagePost from "@/components/ImagePost.astro";
 import ProjectPost from "@/components/ProjectPost.astro";
 import AdPost from "@/components/AdPost.astro";
@@ -12,31 +11,10 @@ import quicklearning from "@/assets/quicklearning.jpeg";
 
 import bufonio from "@/assets/bufonio.jpeg";
 
-import IconContainer from "@/components/IconContainer.astro";
-
-import JavaIcon from "@/components/icons/JavaIcon.astro";
-import SpringIcon from "@/components/icons/SpringIcon.astro";
-import MySQLIcon from "@/components/icons/MySQLIcon.astro";
-import PostgreSQLIcon from "@/components/icons/PostgreSQLIcon.astro";
-
-import HTMLIcon from "@/components/icons/HTMLIcon.astro";
-import CSSIcon from "@/components/icons/CSSIcon.astro";
-import JavaScriptIcon from "@/components/icons/JavaScriptIcon.astro";
-import ReactIcon from "@/components/icons/ReactIcon.astro";
-import AstroIcon from "@/components/icons/AstroIcon.astro";
-
-import TypeScriptIcon from "@/components/icons/TypeScriptIcon.astro";
-import TailwindIcon from "@/components/icons/TailwindIcon.astro";
-
-import GitIcon from "@/components/icons/GitIcon.astro";
-import GitHubIcon from "@/components/icons/GitHubIcon.astro";
-import DockerIcon from "@/components/icons/DockerIcon.astro";
-import CloudflareIcon from "@/components/icons/CloudflareIcon.astro";
-import VercelIcon from "@/components/icons/VercelIcon.astro";
-import RenderIcon from "@/components/icons/RenderIcon.astro";
-import SupabaseIcon from "@/components/icons/SupabaseIcon.astro";
-import TurborepoIcon from "@/components/icons/TurborepoIcon.astro";
-import HoppscotchIcon from "@/components/icons/HoppscotchIcon.astro";
+import Backend from "@/components/skills/Backend.astro";
+import Frontend1 from "@/components/skills/Frontend1.astro";
+import Frontend2 from "@/components/skills/Frontend2.astro";
+import Tools from "@/components/skills/Tools.astro";
 
 const dataAds = [
   {
@@ -86,33 +64,6 @@ const dataEducation = [
     category: "education",
   },
 ];
-
-const dataSkills = [
-  {
-    title: "Backend",
-    description:
-      "Driven by curiosity, I studied Java and developed my first applications while learning the fundamentals of software development. I then delved deeper into Spring and SQL, which allowed me to advance my training as a backend developer.",
-    category: "skills",
-  },
-  {
-    title: "Frontend",
-    description:
-      "Looking to strengthen my profile as a developer, I began learning front-end development, gaining knowledge in HTML, CSS, and JavaScript, as well as modern frameworks such as React and Astro.",
-    category: "skills",
-  },
-  {
-    title: "Frontend",
-    description:
-      "As part of my growth as a front-end developer, I integrated TypeScript and Tailwind CSS into my projects, improving code quality and enabling me to build modern, scalable, and well-structured interfaces.",
-    category: "skills",
-  },
-  {
-    title: "Tools",
-    description:
-      "To continue strengthening my tech stack, I've learned various tools and platforms that help me develop my projects.",
-    category: "skills",
-  },
-];
 ---
 
 <Layout>
@@ -143,41 +94,7 @@ const dataSkills = [
 
   <LayoutSplit>
     <div id="feed-container" class="flex flex-col scroll-mt-18 gap-4">
-      <Post
-        title={dataSkills[3].title}
-        description={dataSkills[3].description}
-        category={dataSkills[3].category}
-      >
-        <div class="flex flex-wrap justify-center gap-10">
-          <IconContainer figcaption="Git">
-            <GitIcon width="50" height="50" />
-          </IconContainer>
-          <IconContainer figcaption="GitHub">
-            <GitHubIcon width="50" height="50" />
-          </IconContainer>
-          <IconContainer figcaption="Turborepo">
-            <TurborepoIcon width="50" height="50" />
-          </IconContainer>
-          <IconContainer figcaption="Docker">
-            <DockerIcon width="50" height="50" />
-          </IconContainer>
-          <IconContainer figcaption="Hoppscotch">
-            <HoppscotchIcon width="50" height="50" />
-          </IconContainer>
-          <IconContainer figcaption="Supabase">
-            <SupabaseIcon width="50" height="50" />
-          </IconContainer>
-          <IconContainer figcaption="Vercel">
-            <VercelIcon width="50" height="50" />
-          </IconContainer>
-          <IconContainer figcaption="Render">
-            <RenderIcon width="50" height="50" />
-          </IconContainer>
-          <IconContainer figcaption="Cloudflare">
-            <CloudflareIcon width="50" height="50" />
-          </IconContainer>
-        </div>
-      </Post>
+      <Tools />
       <ProjectPost
         title={dataProjects[0].title}
         description={dataProjects[0].description}
@@ -195,20 +112,7 @@ const dataSkills = [
         adTitle={dataAds[1].adTitle}
         message={dataAds[1].message}
       />
-      <Post
-        title={dataSkills[2].title}
-        description={dataSkills[2].description}
-        category={dataSkills[2].category}
-      >
-        <div class="flex flex-wrap justify-center gap-10">
-          <IconContainer figcaption="TypeScript">
-            <TypeScriptIcon width="50" height="50" />
-          </IconContainer>
-          <IconContainer figcaption="Tailwind">
-            <TailwindIcon width="50" height="50" />
-          </IconContainer>
-        </div>
-      </Post>
+      <Frontend2 />
       <ImagePost
         title={dataEducation[2].title}
         description={dataEducation[2].description}
@@ -216,29 +120,7 @@ const dataSkills = [
         src={quicklearning}
         alt="Quick Learning"
       />
-      <Post
-        title={dataSkills[1].title}
-        description={dataSkills[1].description}
-        category={dataSkills[1].category}
-      >
-        <div class="flex flex-wrap justify-center gap-10">
-          <IconContainer figcaption="HTML">
-            <HTMLIcon width="50" height="50" />
-          </IconContainer>
-          <IconContainer figcaption="CSS">
-            <CSSIcon width="50" height="50" />
-          </IconContainer>
-          <IconContainer figcaption="JavaScript">
-            <JavaScriptIcon width="50" height="50" />
-          </IconContainer>
-          <IconContainer figcaption="React">
-            <ReactIcon width="50" height="50" />
-          </IconContainer>
-          <IconContainer figcaption="Astro">
-            <AstroIcon width="50" height="50" />
-          </IconContainer>
-        </div>
-      </Post>
+      <Frontend1 />
       <ImagePost
         title={dataEducation[1].title}
         description={dataEducation[1].description}
@@ -246,26 +128,7 @@ const dataSkills = [
         src={universityofxalapa}
         alt="University of Xalapa"
       />
-      <Post
-        title={dataSkills[0].title}
-        description={dataSkills[0].description}
-        category={dataSkills[0].category}
-      >
-        <div class="flex flex-wrap justify-center gap-10">
-          <IconContainer figcaption="Java">
-            <JavaIcon width="50" height="50" />
-          </IconContainer>
-          <IconContainer figcaption="Spring">
-            <SpringIcon width="50" height="50" />
-          </IconContainer>
-          <IconContainer figcaption="MySQL">
-            <MySQLIcon width="50" height="50" />
-          </IconContainer>
-          <IconContainer figcaption="PostgreSQL">
-            <PostgreSQLIcon width="50" height="50" />
-          </IconContainer>
-        </div>
-      </Post>
+      <Backend />
       <AdPost
         title={dataAds[0].title}
         description={dataAds[0].description}
