@@ -12,7 +12,10 @@ const key = import.meta.env.PUBLIC_WEB3FORMS_KEY;
 ---
 
 <Post {...postProps}>
-  <form data-contact-form class="flex flex-col gap-4 px-4 md:px-12">
+  <form
+    data-contact-form
+    class="flex flex-col gap-4 p-4 border border-black/10"
+  >
     <input type="hidden" name="access_key" value={key} />
     <input type="hidden" name="subject" value="New message" />
     <input
