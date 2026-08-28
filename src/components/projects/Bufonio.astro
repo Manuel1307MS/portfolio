@@ -1,0 +1,22 @@
+---
+import ProjectPost from "@/components/ProjectPost.astro";
+import bufonio from "@/assets/bufonio.jpeg";
+
+const data = {
+    title: "Bufonio",
+    description:
+        "Bufonio is an anonymous feedback platform that uses artificial intelligence to turn employee feedback into constructive messages with a touch of humor, fostering more open communication and reducing tension between teams and leaders.",
+    category: "projects",
+};
+---
+
+<ProjectPost
+    title={data.title}
+    description={data.description}
+    category={data.category}
+    src={bufonio}
+    alt="Bufonio"
+    urlBackend="https://github.com/Manuel1307MS/bufonio-v2"
+    urlFrontend="https://github.com/Manuel1307MS/bufonio-monorepo"
+    urlLive="https://bufonio.manuelmurillo.dev"
+/>

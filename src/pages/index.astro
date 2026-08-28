@@ -1,9 +1,6 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import LayoutSplit from "@/layouts/LayoutSplit.astro";
-import ProjectPost from "@/components/ProjectPost.astro";
-
-import bufonio from "@/assets/bufonio.jpeg";
 
 import Backend from "@/components/skills/Backend.astro";
 import Frontend1 from "@/components/skills/Frontend1.astro";
@@ -14,17 +11,10 @@ import HighSchool from "@/components/education/HighSchool.astro";
 import UniversityOfXalapa from "@/components/education/UniversityOfXalapa.astro";
 import QuickLearning from "@/components/education/QuickLearning.astro";
 
+import Bufonio from "@/components/projects/Bufonio.astro";
+
 import Ad1 from "@/components/ads/Ad1.astro";
 import Ad2 from "@/components/ads/Ad2.astro";
-
-const dataProjects = [
-  {
-    title: "Bufonio",
-    description:
-      "Bufonio is an anonymous feedback platform that uses artificial intelligence to turn employee feedback into constructive messages with a touch of humor, fostering more open communication and reducing tension between teams and leaders.",
-    category: "projects",
-  },
-];
 ---
 
 <Layout>
@@ -56,23 +46,14 @@ const dataProjects = [
   <LayoutSplit>
     <div id="feed-container" class="flex flex-col scroll-mt-18 gap-4">
       <Tools />
-      <ProjectPost
-        title={dataProjects[0].title}
-        description={dataProjects[0].description}
-        category={dataProjects[0].category}
-        src={bufonio}
-        alt="Bufonio"
-        urlBackend="https://github.com/Manuel1307MS/bufonio-v2"
-        urlFrontend="https://github.com/Manuel1307MS/bufonio-monorepo"
-        urlLive="https://bufonio.manuelmurillo.dev"
-      />
+      <Bufonio />
+      <QuickLearning />
       <Ad2 />
       <Frontend2 />
-      <QuickLearning />
       <Frontend1 />
       <UniversityOfXalapa />
-      <Backend />
       <Ad1 />
+      <Backend />
       <HighSchool />
     </div>
   </LayoutSplit>
