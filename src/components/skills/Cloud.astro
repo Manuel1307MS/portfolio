@@ -1,20 +1,15 @@
 ---
 import Post from "@/components/Post.astro";
 import IconContainer from "@/components/IconContainer.astro";
-import GitIcon from "@/components/icons/GitIcon.astro";
-import GitHubIcon from "@/components/icons/GitHubIcon.astro";
-import TurborepoIcon from "@/components/icons/TurborepoIcon.astro";
-import DockerIcon from "@/components/icons/DockerIcon.astro";
-import HoppscotchIcon from "@/components/icons/HoppscotchIcon.astro";
 import SupabaseIcon from "@/components/icons/SupabaseIcon.astro";
 import VercelIcon from "@/components/icons/VercelIcon.astro";
 import RenderIcon from "@/components/icons/RenderIcon.astro";
 import CloudflareIcon from "@/components/icons/CloudflareIcon.astro";
 
 const data = {
-    title: "Tools",
+    title: "Cloud",
     description:
-        "To continue strengthening my tech stack, I've learned various tools and platforms that help me develop my projects.",
+        "As I build and ship projects, I’ve learned to work with cloud tools for deploying, hosting, and managing applications.",
     category: "skills",
 };
 ---
@@ -25,21 +20,6 @@ const data = {
     category={data.category}
 >
     <div class="flex flex-wrap justify-center gap-10">
-        <IconContainer figcaption="Git">
-            <GitIcon width="50" height="50" />
-        </IconContainer>
-        <IconContainer figcaption="GitHub">
-            <GitHubIcon width="50" height="50" />
-        </IconContainer>
-        <IconContainer figcaption="Turborepo">
-            <TurborepoIcon width="50" height="50" />
-        </IconContainer>
-        <IconContainer figcaption="Docker">
-            <DockerIcon width="50" height="50" />
-        </IconContainer>
-        <IconContainer figcaption="Hoppscotch">
-            <HoppscotchIcon width="50" height="50" />
-        </IconContainer>
         <IconContainer figcaption="Supabase">
             <SupabaseIcon width="50" height="50" />
         </IconContainer>
