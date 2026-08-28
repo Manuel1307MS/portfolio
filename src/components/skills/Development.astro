@@ -20,21 +20,45 @@ const data = {
     description={data.description}
     category={data.category}
 >
-    <div class="flex flex-wrap justify-center gap-10">
-        <IconContainer figcaption="Git">
-            <GitIcon width="50" height="50" />
-        </IconContainer>
-        <IconContainer figcaption="GitHub">
-            <GitHubIcon width="50" height="50" />
-        </IconContainer>
-        <IconContainer figcaption="Turborepo">
-            <TurborepoIcon width="50" height="50" />
-        </IconContainer>
-        <IconContainer figcaption="Docker">
-            <DockerIcon width="50" height="50" />
-        </IconContainer>
-        <IconContainer figcaption="Hoppscotch">
-            <HoppscotchIcon width="50" height="50" />
-        </IconContainer>
+    <div class="grid grid-cols-4 gap-4">
+        <div
+            class="col-span-2 row-span-2 border border-black/10 flex items-center justify-center p-2"
+        >
+            <IconContainer figcaption="Git">
+                <GitIcon width="50" height="50" />
+            </IconContainer>
+        </div>
+
+        <div
+            class="border border-black/10 flex items-center justify-center p-2"
+        >
+            <IconContainer figcaption="GitHub">
+                <GitHubIcon width="50" height="50" />
+            </IconContainer>
+        </div>
+
+        <div
+            class="border border-black/10 flex items-center justify-center p-2"
+        >
+            <IconContainer figcaption="Turborepo">
+                <TurborepoIcon width="50" height="50" />
+            </IconContainer>
+        </div>
+
+        <div
+            class="border border-black/10 flex items-center justify-center p-2"
+        >
+            <IconContainer figcaption="Docker">
+                <DockerIcon width="50" height="50" />
+            </IconContainer>
+        </div>
+
+        <div
+            class="border border-black/10 flex items-center justify-center p-2"
+        >
+            <IconContainer figcaption="Hoppscotch">
+                <HoppscotchIcon width="50" height="50" />
+            </IconContainer>
+        </div>
     </div>
 </Post>

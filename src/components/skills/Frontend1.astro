@@ -20,21 +20,45 @@ const data = {
     description={data.description}
     category={data.category}
 >
-    <div class="flex flex-wrap justify-center gap-10">
-        <IconContainer figcaption="HTML">
-            <HTMLIcon width="50" height="50" />
-        </IconContainer>
-        <IconContainer figcaption="CSS">
-            <CSSIcon width="50" height="50" />
-        </IconContainer>
-        <IconContainer figcaption="JavaScript">
-            <JavaScriptIcon width="50" height="50" />
-        </IconContainer>
-        <IconContainer figcaption="React">
-            <ReactIcon width="50" height="50" />
-        </IconContainer>
-        <IconContainer figcaption="Astro">
-            <AstroIcon width="50" height="50" />
-        </IconContainer>
+    <div class="grid grid-cols-4 gap-4">
+        <div
+            class="col-span-2 row-span-2 border border-black/10 flex items-center justify-center p-2"
+        >
+            <IconContainer figcaption="HTML">
+                <HTMLIcon width="50" height="50" />
+            </IconContainer>
+        </div>
+
+        <div
+            class="border border-black/10 flex items-center justify-center p-2"
+        >
+            <IconContainer figcaption="CSS">
+                <CSSIcon width="50" height="50" />
+            </IconContainer>
+        </div>
+
+        <div
+            class="border border-black/10 flex items-center justify-center p-2"
+        >
+            <IconContainer figcaption="JavaScript">
+                <JavaScriptIcon width="50" height="50" />
+            </IconContainer>
+        </div>
+
+        <div
+            class="border border-black/10 flex items-center justify-center p-2"
+        >
+            <IconContainer figcaption="React">
+                <ReactIcon width="50" height="50" />
+            </IconContainer>
+        </div>
+
+        <div
+            class="border border-black/10 flex items-center justify-center p-2"
+        >
+            <IconContainer figcaption="Astro">
+                <AstroIcon width="50" height="50" />
+            </IconContainer>
+        </div>
     </div>
 </Post>

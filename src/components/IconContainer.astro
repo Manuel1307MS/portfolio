@@ -7,5 +7,7 @@ const { figcaption } = Astro.props;
 
 <figure class="flex flex-col items-center gap-1">
   <slot />
-  <figcaption class="text-sm text-black/80">{figcaption}</figcaption>
+  <figcaption class="hidden md:block text-sm text-black/80">
+    {figcaption}
+  </figcaption>
 </figure>
